@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+</head>
+<body>
+<style>
+    body {
+        background: #f4f4f4;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    section {
+        background: #fff;
+        padding: 2rem 2.5rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+        min-width: 320px;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 1.5rem;
+    }
+    #display {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1.5rem;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        text-align: right;
+        background: #f9f9f9;
+        color: #222;
+        box-sizing: border-box;
+    }
+    button {
+        width: 60px;
+        height: 48px;
+        margin: 6px 4px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 8px;
+        background: #e0e0e0;
+        color: #333;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+    }
+    button:hover {
+        background: #1976d2;
+        color: #fff;
+    }
+    button:active {
+        background: #1565c0;
+    }
+    button:nth-child(4n) {
+        background: #ffd54f;
+        color: #333;
+    }
+    button:nth-child(4n):hover {
+        background: #ffb300;
+        color: #fff;
+    }
+    button:nth-child(14) {
+        background:   #ffb300;
+        color: #fff;
+    }
+    button:nth-child(14):hover {
+        background:   #ffb300;
+    }
+    button:nth-child(15) {
+        background:  #ffb300;
+        color: #fff;
+    }
+    button:nth-child(15):hover {
+        background:  #ffb300;
+    }
+</style>
+    <section>
+        <div>
+            <h2>Simple Calculator</h2>
+        </div>
+        <div>
+            <input type="text" id="display" ><br>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('+')">+</button><br>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('-')">-</button><br>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('*')">*</button><br>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('C')">C</button>
+            <button onclick="appendToDisplay('=')">=</button>
+            <button onclick="appendToDisplay('/')">/</button><br>
+
+        </div>
+    </section>
+    <script>
+        function appendToDisplay(value) {
+            const display = document.getElementById('display');
+            if (value === 'C') {
+                display.value = '';
+            } else if (value === '=') {
+                try {
+                    display.value = eval(display.value);
+                } catch {
+                    display.value = 'Error';
+                }
+            } else {
+                display.value += value;
+            }
+        }
+    </script>
+    
+
+</body>
+</html>
